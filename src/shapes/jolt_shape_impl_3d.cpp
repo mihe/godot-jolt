@@ -185,6 +185,14 @@ JPH::ShapeRefC JoltShapeImpl3D::with_double_sided(const JPH::Shape* p_shape) {
 	return shape_result.Get();
 }
 
+JPH::ShapeRefC JoltShapeImpl3D::without_scale(const JPH::Shape* p_shape) {
+	if (p_shape->GetSubType() == JPH::EShapeSubType::Scaled) {
+		return static_cast<const JPH::ScaledShape*>(p_shape)->GetInnerShape();
+	} else {
+		return p_shape;
+	}
+}
+
 JPH::ShapeRefC JoltShapeImpl3D::without_custom_shapes(const JPH::Shape* p_shape) {
 	switch (p_shape->GetSubType()) {
 		case JoltCustomShapeSubType::EMPTY:

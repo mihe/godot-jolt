@@ -62,6 +62,8 @@ public:
 
 	static JPH::ShapeRefC with_double_sided(const JPH::Shape* p_shape);
 
+	static JPH::ShapeRefC without_scale(const JPH::Shape* p_shape);
+
 	static JPH::ShapeRefC without_custom_shapes(const JPH::Shape* p_shape);
 
 	static Vector3 make_scale_valid(const JPH::Shape* p_shape, const Vector3& p_scale);
